@@ -29,7 +29,7 @@ const closeModal = () => {
   >
     <template #body>
       <div v-if="pending && !drink">
-        <Skeleton class="h-[300px] w-[300px] mx-auto" />
+        <Skeleton class="h-[300px] w-[250px] mx-auto" />
         <Skeleton v-for="_ in 4" class="mt-4 h-[15px] w-full px-16 mx-auto" />
       </div>
       <div v-else>
