@@ -28,10 +28,13 @@ const closeModal = () => {
     @close="closeModal"
   >
     <template #body>
-      <div v-if="pending && !drink">Carregando...</div>
+      <div v-if="pending && !drink">
+        <Skeleton class="h-[300px] w-[300px] mx-auto" />
+        <Skeleton v-for="_ in 4" class="mt-4 h-[15px] w-full px-16 mx-auto" />
+      </div>
       <div v-else>
         <nuxt-img
-          class="mx-auto mb-16"
+          class="mx-auto mb-16 rounded-xl"
           :src="drink.image"
           width="300px"
           height="300px"
