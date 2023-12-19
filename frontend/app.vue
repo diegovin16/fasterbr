@@ -10,6 +10,7 @@ const { data: categories } = useFetch('http://localhost:4000/categories', {
     })),
 })
 
+const isError = ref(false)
 const selectedCategory = ref('')
 const search = ref('')
 const isLoading = ref(false)
@@ -27,6 +28,15 @@ const fetchDrinksByCategory = async (category?: string, search?: string) => {
       category,
     },
     server: false,
+    onResponseError() {
+      isError.value = true
+    },
+    onRequestError() {
+      isError.value = true
+    },
+    onResponse() {
+      isError.value = false
+    },
   })
   isLoading.value = false
   drinksList.value = drinks.value as DrinkType[]
@@ -80,6 +90,9 @@ const handleCloseModal = () => {
           </template>
         </SearchWithSelect>
       </Section>
+      <p v-if="isError" class="text-red-400 text-sm text-center mt-4">
+        Houve um erro, tente novamente mais tarde.
+      </p>
 
       <Section v-if="!!drinksList" class="mt-2 flex-1">
         <div v-if="isLoading" class="w-full flex flex-col gap-4">
