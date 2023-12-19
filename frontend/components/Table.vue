@@ -16,7 +16,6 @@ const emit = defineEmits(['click-row'])
 const handleClickRow = (row) => {
   emit('click-row', row)
 }
-console.log('rows', rows)
 </script>
 
 <template>
