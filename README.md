@@ -1,5 +1,5 @@
 # drinkify.
-
+![preview](image.png)
 Este repositório contém um projeto que está dividido em duas partes, frontend e backend.
 
 ## Backend
