@@ -84,7 +84,7 @@ const handleCloseModal = () => {
           <template #select>
             <Select
               name="categories"
-              :options="categories"
+              :options="categories || []"
               class="rounded-r-none"
             />
           </template>

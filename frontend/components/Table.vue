@@ -1,19 +1,9 @@
-import type { Logo } from '#build/components'; import type {
-routerViewLocationKey } from 'vue-router'; import type { routerViewLocationKey }
-from 'vue-router';
 <script lang="ts" setup>
-const { rows, headers } = defineProps({
-  headers: {
-    type: [String],
-    default: () => [],
-  },
-  rows: {
-    type: [],
-    default: () => [],
-  },
-})
+import type { CategoryType, RowType, TablePropsType } from '~/types'
+
+const { rows, headers } = defineProps<TablePropsType>()
 const emit = defineEmits(['click-row'])
-const handleClickRow = (row) => {
+const handleClickRow = (row: RowType) => {
   emit('click-row', row)
 }
 </script>

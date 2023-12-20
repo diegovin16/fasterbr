@@ -10,7 +10,7 @@ const { selectedDrink, showModal } = defineProps({
   },
 })
 const { data: drink } = useNuxtData(selectedDrink?.id)
-const { data, pending } = await useLazyFetch(
+const { pending } = await useLazyFetch(
   `http://localhost:4000/drinks/${selectedDrink?.id}`,
   {
     key: selectedDrink.id,

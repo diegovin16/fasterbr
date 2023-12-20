@@ -1,21 +1,9 @@
 <script setup lang="ts">
-const props = defineProps({
-  label: {
-    type: String,
-    default: '',
-  },
-  options: {
-    type: Array,
-    default: () => [],
-  },
-  name: {
-    type: String,
-    required: true,
-  },
-})
-const { label, options, name } = props
-const handleChange = (e) => {
-  emit('change', e)
+import type { SelectProps } from '~/types'
+
+const { label, options, name } = defineProps<SelectProps>()
+const handleChange = (event: Event) => {
+  emit('change', event)
 }
 const emit = defineEmits(['change'])
 </script>
